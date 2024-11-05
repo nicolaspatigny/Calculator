@@ -1,0 +1,98 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: lightblue;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.display {
+  width: 100%;
+  margin-bottom: 20px;
+  display: grid;
+  gap: 15px;
+}
+
+.displayScreen {
+  width: calc(100% - 20px);
+  padding: 15px;
+  font-size: 32px;
+  text-align: right;
+  margin-bottom: 15px;
+  border: none;
+  background-color: white;
+  border-radius: 5px;
+}
+
+button {
+  padding: 20px;
+  font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: grid;
+  gap: 15px;
+}
+
+.row1,
+.row2,
+.row3,
+.row4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.numbers {
+  background-color: white;
+  transition: all 0.2s;
+}
+
+.numbers:hover {
+  background-color: #e0e0e0;
+}
+
+.operators {
+  background-color: #ffa07a;
+}
+
+.operators:hover {
+  background-color: #ff8c66;
+}
+
+.decimal,
+.equal {
+  background-color: #87ceeb;
+}
+
+.decimal:hover,
+.equal:hover {
+  background-color: #7ab8d2;
+}
+
+.clear {
+  background-color: #ff6b6b;
+}
+
+.clear:hover {
+  background-color: #ff5252;
+}
+
+button {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
