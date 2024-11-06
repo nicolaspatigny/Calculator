@@ -51,6 +51,9 @@ const calculate = () => {
       result = prev * current;
       break;
     case "/":
+      if (current === 0) {
+        return "Cannot divide by zero";
+      }
       result = prev / current;
       break;
     default:
@@ -62,7 +65,19 @@ const calculate = () => {
 equalButton.addEventListener("click", () => {
   if (currentOperation === null || firstNumber === "") return;
   secondNumber = display.value;
-  display.value = calculate();
+  const result = calculate();
+
+  display.value = result;
   firstNumber = "";
   currentOperation = null;
+});
+
+decimalButton.addEventListener("click", () => {
+  if (shouldResetScreen) {
+    display.value = "0";
+    shouldResetScreen = false;
+  }
+  if (display.value.includes(".")) return;
+  if (display.value === "") display.value = "0";
+  display.value += ".";
 });
