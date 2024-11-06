@@ -11,7 +11,7 @@ let currentOperation = null;
 let shouldResetScreen = false;
 
 numberButtons.forEach((button) => {
-  button.addEventListener(click, () => {
+  button.addEventListener("click", () => {
     if (shouldResetScreen) {
       display.value = "";
       shouldResetScreen = false;
@@ -29,9 +29,40 @@ clearButton.addEventListener("click", () => {
 
 operatorButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (currentOperation !== null) return;
     firstNumber = display.value;
     currentOperation = button.textContent;
     shouldResetScreen = true;
   });
+});
+
+const calculate = () => {
+  let result;
+  const prev = parseFloat(firstNumber);
+  const current = parseFloat(display.value);
+
+  switch (currentOperation) {
+    case "+":
+      result = prev + current;
+      break;
+    case "-":
+      result = prev - current;
+      break;
+    case "x":
+      result = prev * current;
+      break;
+    case "/":
+      result = prev / current;
+      break;
+    default:
+      return;
+  }
+  return result;
+};
+
+equalButton.addEventListener("click", () => {
+  if (currentOperation === null || firstNumber === "") return;
+  secondNumber = display.value;
+  display.value = calculate();
+  firstNumber = "";
+  currentOperation = null;
 });
